@@ -17,4 +17,5 @@ public class AddHourlyEmployeeTransaction implements Transaction {
 		this.hourlyRate = hourlyRate;
 	}
 
+
 }
