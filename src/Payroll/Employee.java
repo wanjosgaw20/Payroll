@@ -4,6 +4,8 @@ public class Employee {
 	private int empId;
 	private String name;
 	private String address;
+	private PaymentClassification PaymentClassification;
+	
 	public int getEmpId() {
 		return empId;
 	}
@@ -27,6 +29,12 @@ public class Employee {
 		this.empId = empId;
 		this.name = name;
 		this.address = address;
+	}
+	public PaymentClassification getPaymentClassification() {
+		return PaymentClassification;
+	}
+	public void setPaymentClassification(PaymentClassification paymentClassification) {
+		PaymentClassification = paymentClassification;
 	}
 	
 }
