@@ -6,9 +6,11 @@ import org.junit.Test;
 
 import Payroll.Employee;
 import Payroll.PaymentClassification;
+import Payroll.PaymentMethod;
 import Payroll.PayrollDatabase;
 import Payroll.Transaction;
 import Payroll.classification.HourlyClassification;
+import Payroll.method.HoldMethod;
 import Payroll.trans.AddHourlyEmployeeTransaction;
 
 public class AddEmployeeTest {
@@ -33,9 +35,9 @@ public class AddEmployeeTest {
 		PaymentClassification pc = e.getPaymentClassification();
 		assertTrue(pc instanceof HourlyClassification);//钟点工
 		HourlyClassification hc = (HourlyClassification) pc;
-		asserEquals(hourlyRate,hc.getHourlyRate(),0.01);//小时工资正确
+		assertEquals(hourlyRate,hc.getHourlyRate(),0.01);//小时工资正确
 		PaymentMethod pm =e.getPaymentMethod();
-		assertTure(pm instanceof HoldMethod);//支付方式默认为保存支票
+		assertTrue(pm instanceof HoldMethod);//支付方式默认为保存支票
 	}
 
 }
