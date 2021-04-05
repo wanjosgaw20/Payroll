@@ -7,8 +7,11 @@ import org.junit.Test;
 import Payroll.Employee;
 import Payroll.PaymentClassification;
 import Payroll.PayrollDatabase;
+import Payroll.TimeCard;
 import Payroll.Transaction;
+import Payroll.classification.HourlyClassification;
 import Payroll.trans.AddHourlyEmployeeTransaction;
+import Payroll.trans.TimeCardTransaction;
 
 //用例3  登记时间卡。
 //执行TimeCard操作时，系统会创建一条时间卡记录，并把该记录和对应的雇员记录关联起来。
