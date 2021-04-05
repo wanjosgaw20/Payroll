@@ -36,4 +36,16 @@ public class DeleteEmployeeTest {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		assertNull(e); // 雇员已删除
 	}
+	//删除雇员（不存在的）
+		//DelEmp EmpId
+		@Test
+		public void testDeleteEmployeeNotExisted() {
+			int empId = 2002; // 不存在的雇员编号
+			Employee employee = PayrollDatabase.getEmployee(empId);
+			assertNull(employee); // 数据库中不存在该雇员
+			// 删除雇员
+			Transaction t = new DeleteEmployeeTransaction(empId);
+			t.execute();
+		}
+
 }
