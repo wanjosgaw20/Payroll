@@ -7,4 +7,9 @@ public class TimeCard {
 		return null;
 	}
 
+	public double getHours() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
