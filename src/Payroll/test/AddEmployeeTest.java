@@ -10,6 +10,7 @@ import Payroll.PaymentMethod;
 import Payroll.PayrollDatabase;
 import Payroll.Transaction;
 import Payroll.classification.HourlyClassification;
+import Payroll.classification.SalariedClassification;
 import Payroll.method.HoldMethod;
 import Payroll.trans.AddHourlyEmployeeTransaction;
 import Payroll.trans.AddSalariedEmployeeTransaction;
@@ -49,7 +50,7 @@ public class AddEmployeeTest {
 			String address = "Home";
 			double salary = 2410.0;
 			
-			Transaction t = new AddSalariedEmployeeTransaction(empId, name, address, salary);
+			Transaction t = new AddSalariedEmployeeTransaction();
 			t.execute();
 			
 			Employee e = PayrollDatabase.getEmployee(empId);
