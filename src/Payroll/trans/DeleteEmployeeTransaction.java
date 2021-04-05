@@ -3,6 +3,7 @@ package Payroll.trans;
 import Payroll.Employee;
 import Payroll.PayrollDatabase;
 import Payroll.Transaction;
+import Payroll.exception.NosuchEmployeeException;
 
 public class DeleteEmployeeTransaction implements Transaction {
 
