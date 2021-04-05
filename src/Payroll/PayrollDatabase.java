@@ -12,5 +12,9 @@ public class PayrollDatabase {
 	public static void save(Employee employee) {
 		employees.put(employee.getEmpId(), employee);
 	}
+	public static void deleteEmployee(int empId) {
+		employees.remove(empId);
+		
+	}
 
 }
