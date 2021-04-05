@@ -50,7 +50,7 @@ public class AddEmployeeTest {
 			String address = "Home";
 			double salary = 2410.0;
 			
-			Transaction t = new AddSalariedEmployeeTransaction();
+			Transaction t = new AddSalariedEmployeeTransaction(empId,name,address,salary);
 			t.execute();
 			
 			Employee e = PayrollDatabase.getEmployee(empId);
