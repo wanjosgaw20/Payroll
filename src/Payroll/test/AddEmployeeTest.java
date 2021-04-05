@@ -12,6 +12,7 @@ import Payroll.Transaction;
 import Payroll.classification.HourlyClassification;
 import Payroll.classification.SalariedClassification;
 import Payroll.method.HoldMethod;
+import Payroll.trans.AddCommissionedEmployeeTransaction;
 import Payroll.trans.AddHourlyEmployeeTransaction;
 import Payroll.trans.AddSalariedEmployeeTransaction;
 
@@ -63,7 +64,32 @@ public class AddEmployeeTest {
 			assertEquals(salary, sc.getSalary(), 0.01); // 月薪正确
 			PaymentMethod pm = e.getPaymentMethod();
 			assertTrue(pm instanceof HoldMethod);
-		
-	
 	}
-}
+		//添加月薪加销售提成的雇员
+		//AddEmp EmpId “name” “address” C monthly-salary commission-rate
+		@Test
+		public void testAddCommissionedEmployee() {
+			int empId = 1002;
+			String name = "Bill";
+			String address = "Home";
+			double salary = 2410.0;
+			double commissionRate = 0.02;
+			
+			Transaction t = new AddCommissionedEmployeeTransaction(empId, name, address,
+					salary, commissionRate);
+			t.execute();
+			
+			Employee e = PayrollDatabase.getEmployee(empId);
+			assertNotNull(e);
+			assertEquals(name, e.getName());
+			assertEquals(address, e.getAddress());
+			PaymentClassification pc = e.getPaymentClassification();
+			assertTrue(pc instanceof CommissionedClassification);
+			CommissionedClassification sc = (CommissionedClassification) pc;
+			assertEquals(salary, sc.getSalary(), 0.01);
+			assertEquals(commissionRate, sc.getCommissionRate(), 0.0001);
+		}
+
+	}
+
+
