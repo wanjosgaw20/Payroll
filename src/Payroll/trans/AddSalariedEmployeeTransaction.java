@@ -1,6 +1,8 @@
 package Payroll.trans;
 
+import Payroll.Employee;
 import Payroll.Transaction;
+import Payroll.classification.SalariedClassification;
 
 public class AddSalariedEmployeeTransaction implements Transaction {
 	
@@ -19,7 +21,12 @@ public class AddSalariedEmployeeTransaction implements Transaction {
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
+		//新建雇员
+		Employee employee = new Employee(empId,name,address);
+		//设置工资计算方式
+		employee.setPaymentClassification(new SalariedClassification(salary));
+		//设置工资支付方法
+		//保存到数据库
 
 	}
 
